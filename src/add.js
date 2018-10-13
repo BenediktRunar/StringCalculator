@@ -1,15 +1,22 @@
 function add(input){
-    
+    //Ef strengurinn er tómur er skilað 0
     if(input === ""){
         return 0;
     }
 
     if(input.includes(",")){
+        //input skipt upp í hluta sem eru aðgreindir með ","
         var inputArray = input.split(",");
-        return parseInt(inputArray[0]) + parseInt(inputArray[1]);
+        //farið í gegnum allan array-inn og summa talnanna fundin
+        var sum = 0;
+        for(var i = 0; i < inputArray.length; i++){
+            sum += parseInt(inputArray[i]);
+        }
+        //sum skilað
+        return sum;
     }
 
-    //Ef það koma skrýtin results má prófa að gera return parseInt(input, 10);
+    //Ef það er ein tala í input-inu er henni skilað
     return parseInt(input);
 }
 
