@@ -1,4 +1,16 @@
 function add(input){
+    //Check-a hvort að það sé custom delimitier í byrjun strengs
+    if(input.charAt(0) == '/' && input.charAt(1) == '/'){
+        //vista nýja delimiter-inn
+        var newdelimiter = input.charAt(2);
+        //Fjarlægja fyrstu línu
+        input = input.split('\n').slice(1).join('\n');
+
+        //Breyta nýja delimiter-num í ','
+        input = input.split(newdelimiter).join(',');
+    }
+    
+    
     //input skipt upp í hluta sem eru aðgreindir með annaðhvort "," eða "\n"
     var inputArray = input.split(/[\,\n]/);
 
