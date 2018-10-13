@@ -24,4 +24,6 @@ test("tests whether a string that containing negative numbers will cause an exce
     expect(function(){add("2,-4,3,-5");}).toThrow("Negatives not allowed:-4,-5");    
 });
 
-//"Negatives not allowed:-4,-5"
+test("tests whether a string containing two numbers will return their sum or not", () => {
+	expect(add("1001,2")).toBe(2);
+});
