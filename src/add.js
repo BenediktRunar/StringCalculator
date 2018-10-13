@@ -1,8 +1,4 @@
 function add(input){
-    if(input === ""){
-        return 0;
-    }
-    
     //input skipt upp í hluta sem eru aðgreindir með annaðhvort "," eða "\n"
     var inputArray = input.split(/[\,\n]/);
 
@@ -25,7 +21,7 @@ function sum(inputArray){
         negativeCheck(inputArray, i);
 
         //Tölunni bætt við sum
-        sum += parseInt(inputArray[i]);
+        sum += parseInt(inputArray[i] || 0);
     }
     
     return sum;
@@ -35,14 +31,15 @@ function negativeCheck(inputArray, i){
     var isNegative = false;
     var negativeNumbers = "";
 
-    for(; i < inputArray.length; i++){
-        
-        if(parseInt(inputArray[i]) < 0){
-            if(isNegative){
-                negativeNumbers += "," + inputArray[i];
-            }
-            else{
-                negativeNumbers += inputArray[i];
+    if(parseInt(inputArray[i]) < 0){
+        for(; i < inputArray.length; i++){
+            if(parseInt(inputArray[i]) < 0){
+                if(isNegative){
+                    negativeNumbers += "," + inputArray[i];
+                }
+                else{
+                    negativeNumbers += inputArray[i];
+                }
             }
             
             isNegative = true;
