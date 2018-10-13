@@ -13,5 +13,9 @@ test("tests whether a string containing two numbers will return their sum or not
 });
 
 test("tests whether a string containing multiple numbers will return their sum or not", () => {
-	expect(add("1,3,6")).toBe(10);
+	expect(add("1,3,6,5")).toBe(15);
+});
+
+test("tests whether a string that divides numbers by \n will return their sum or not", () => {
+	expect(add("1\n2,3")).toBe(6);
 });

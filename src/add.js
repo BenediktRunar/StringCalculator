@@ -5,8 +5,9 @@ function add(input){
     }
 
     if(input.includes(",")){
-        //input skipt upp í hluta sem eru aðgreindir með ","
-        var inputArray = input.split(",");
+        //input skipt upp í hluta sem eru aðgreindir með "," eða "\n"
+        var inputArray = input.split(/[\,\n]/);
+        
 
         //summu talnanna skilað
         return sum(inputArray);
